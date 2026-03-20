@@ -1,98 +1,66 @@
 # PromptBar
 
-PromptBar is a native macOS menu bar utility for quickly searching, copying, and managing saved AI prompts.
+PromptBar is a native macOS menu bar app for saving, searching, and copying AI prompts instantly.
 
-The app is designed around a lightweight command palette workflow:
+It is built for a fast command-palette workflow:
 
-- open PromptBar from the menu bar or global shortcut
-- search saved prompts instantly
-- copy a prompt without leaving your current context
-- manage prompt titles, descriptions, favorites, and content in a simple editor
+- open PromptBar from the menu bar
+- press `⌘⇧P` to bring up quick access
+- search prompts as you type
+- copy the prompt you need in one step
+- manage saved prompts in a clean built-in editor
 
-## Repo Layout
+## What It Does
 
-- [`macOS-App`](/Users/zai28/dev/PromptBar/macOS-App)
-  Native SwiftUI/AppKit macOS app and release packaging scripts.
-- [`src`](/Users/zai28/dev/PromptBar/src)
-  Earlier web prototype built with Vite and React.
+PromptBar helps you keep frequently used prompts close at hand without switching between documents, notes, or browser tabs.
 
-If you are working on the actual product, start with `macOS-App`.
+Use it to:
 
-## Native macOS App
+- store reusable prompts for writing, coding, research, and email
+- favorite your most-used prompts
+- search by title, description, or category
+- copy prompts quickly from a lightweight floating palette
 
-Requirements:
+## Download
 
-- macOS 14+
-- Xcode 15+ or Swift 5.10+
+PromptBar is distributed as a downloadable macOS app ZIP.
 
-Run the native app in development:
+Download the latest release from the repository's Releases page once available.
 
-```bash
-cd macOS-App
-swift run
-```
+## Install
 
-This launches PromptBar as a menu bar app.  
-If you want the global `⌘⇧P` shortcut to work, macOS will require Accessibility permission.
+1. Download `PromptBar.zip`
+2. Unzip the archive
+3. Drag `PromptBar.app` into `Applications`
+4. Open PromptBar from Applications
 
-More native app details are in [`macOS-App/README.md`](/Users/zai28/dev/PromptBar/macOS-App/README.md).
+The app runs as a menu bar utility, so it lives in the macOS menu bar instead of the Dock.
 
-## Build A Standalone App
+## Permissions
 
-Build a `.app` bundle that runs without Terminal:
+If you want to use the global `⌘⇧P` shortcut, macOS will ask you to grant Accessibility access to PromptBar:
 
-```bash
-cd macOS-App
-./scripts/build_app.sh
-```
+- open `System Settings`
+- go to `Privacy & Security`
+- open `Accessibility`
+- enable `PromptBar`
 
-Output:
+Without that permission, you can still use PromptBar from the menu bar icon.
 
-```bash
-macOS-App/dist/PromptBar.app
-```
+## Built For macOS
 
-## Build A DMG
+PromptBar is designed as a native macOS utility using SwiftUI and AppKit. The current product includes:
 
-Create a distributable DMG:
+- a menu bar app shell
+- a floating quick access palette
+- prompt search and copy flow
+- a prompt management editor
 
-```bash
-cd macOS-App
-./scripts/build_dmg.sh
-```
+## For Developers
 
-Output:
+If you want to run or build PromptBar locally, see:
 
-```bash
-macOS-App/dist/PromptBar.dmg
-```
+- [`macOS-App/README.md`](/Users/zai28/dev/PromptBar/macOS-App/README.md)
+- [`macOS-App/RELEASE.md`](/Users/zai28/dev/PromptBar/macOS-App/RELEASE.md)
 
-Release setup, signing, notarization, and GitHub Actions publishing are documented in [`macOS-App/RELEASE.md`](/Users/zai28/dev/PromptBar/macOS-App/RELEASE.md).
-
-## GitHub Release Flow
-
-The repo includes a release workflow at [`.github/workflows/release-dmg.yml`](/Users/zai28/dev/PromptBar/.github/workflows/release-dmg.yml).
-
-Once the required GitHub secrets are configured, you can:
-
-- run the workflow manually from GitHub Actions
-- or push a tag like `v1.0.0`
-
-That workflow can:
-
-- build the app
-- sign it
-- notarize it
-- package a DMG
-- attach the DMG to a GitHub Release
-
-## Web Prototype
-
-The original web prototype is still available if you need to reference earlier UI work:
-
-```bash
-npm install
-npm run dev
-```
-
-This is not the preferred distribution target. The native app in `macOS-App` is the main product path.
+The repo also contains an earlier web prototype, but the native macOS app in [`macOS-App`](/Users/zai28/dev/PromptBar/macOS-App) is the main product.

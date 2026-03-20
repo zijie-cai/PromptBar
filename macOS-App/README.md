@@ -40,24 +40,24 @@ PROMPTBAR_SIGN_IDENTITY="Apple Distribution: Your Name (TEAMID)"
 PROMPTBAR_SKIP_SIGNING=1
 ```
 
-## Build A DMG
+## Build A ZIP
 
-Create a distributable DMG containing `PromptBar.app` and an `Applications` shortcut:
+Create a distributable ZIP containing `PromptBar.app`:
 
 ```bash
-./scripts/build_dmg.sh
+./scripts/build_zip.sh
 ```
 
 Output:
 
 ```bash
-dist/PromptBar.dmg
+dist/PromptBar.zip
 ```
 
 Optional notarization:
 
 ```bash
-PROMPTBAR_NOTARY_PROFILE=promptbar-notary ./scripts/build_dmg.sh
+PROMPTBAR_NOTARY_PROFILE=promptbar-notary ./scripts/build_zip.sh
 ```
 
 This expects a preconfigured keychain profile created with `xcrun notarytool store-credentials`.
@@ -65,7 +65,7 @@ This expects a preconfigured keychain profile created with `xcrun notarytool sto
 ## Distribution Notes
 
 - A signed `.app` or `.dmg` is better than `swift run` for normal users because the app runs independently from Terminal.
-- For public distribution, use an Apple Distribution certificate and notarize the final DMG.
+- For public distribution, use an Apple Distribution certificate and notarize the final app before packaging the ZIP.
 - Until notarization is configured, `spctl`/Gatekeeper will still reject the app even if it is signed.
 - The first time users enable the global hotkey, macOS will ask for Accessibility access for `PromptBar.app`.
 

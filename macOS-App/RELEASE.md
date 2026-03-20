@@ -1,19 +1,19 @@
-# PromptBar DMG Release Setup
+# PromptBar ZIP Release Setup
 
-This repo can now build a standalone signed DMG locally and in GitHub Actions.
+This repo builds a standalone signed macOS app and packages it as a downloadable ZIP.
 
 ## What You Get
 
 - `macOS-App/dist/PromptBar.app`
-- `macOS-App/dist/PromptBar.dmg`
-- Optional notarization and stapling
+- `macOS-App/dist/PromptBar.zip`
+- Optional notarization and stapling for the app bundle
 - Optional GitHub Release upload for one-click downloads
 
 ## Local Build
 
 ```bash
 cd macOS-App
-./scripts/build_dmg.sh
+./scripts/build_zip.sh
 ```
 
 ## GitHub Release Flow
@@ -23,11 +23,12 @@ After this folder is pushed into a GitHub repository, the workflow at [.github/w
 - build the app on macOS
 - sign it
 - notarize it
-- create a DMG
-- upload the DMG as an artifact
-- attach the DMG to a GitHub Release on tag push
+- staple the app
+- package a ZIP
+- upload the ZIP as an artifact
+- attach the ZIP to a GitHub Release on tag push
 
-Users can then click a GitHub Release asset and download the DMG directly.
+Users can then download the ZIP directly from a GitHub Release.
 
 ## Required GitHub Secrets
 
@@ -55,7 +56,7 @@ Set these in your repository settings before using the release workflow:
 Manual run:
 
 - Open GitHub Actions
-- Run `Release DMG`
+- Run `Release ZIP`
 - Provide a version such as `1.0.0`
 
 Tag-based release:
@@ -69,5 +70,6 @@ That will build and publish a release asset that users can download directly.
 
 ## Important Notes
 
-- Without notarization secrets, the workflow can still produce a DMG, but macOS Gatekeeper will reject it.
-- For true one-click distribution, use a notarized DMG attached to a GitHub Release or your website.
+- ZIP is simpler than DMG for early public releases.
+- Without notarization secrets, the workflow can still produce a ZIP, but macOS Gatekeeper may reject the app.
+- If notarization fails, the build script now prints the Apple notarization response so the rejection is easier to debug.
