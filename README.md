@@ -1,66 +1,88 @@
 # PromptBar
 
-PromptBar is a native macOS menu bar app for saving, searching, and copying AI prompts instantly.
+PromptBar is a native macOS menu bar app for saving, searching, and instantly copying AI prompts.
 
-It is built for a fast command-palette workflow:
+It gives you a fast command-palette workflow for the prompts you use most, without keeping a notes file, document, or browser tab open all day.
 
-- open PromptBar from the menu bar
-- press `⌘⇧P` to bring up quick access
-- search prompts as you type
-- copy the prompt you need in one step
-- manage saved prompts in a clean built-in editor
+## Features
 
-## What It Does
+- native macOS menu bar app
+- quick access palette with `⌘⇧P`
+- instant prompt search
+- one-click prompt copy
+- favorites support
+- built-in prompt editor
+- lightweight, keyboard-first workflow
 
-PromptBar helps you keep frequently used prompts close at hand without switching between documents, notes, or browser tabs.
+## How It Works
 
-Use it to:
+PromptBar lives in your macOS menu bar.
 
-- store reusable prompts for writing, coding, research, and email
-- favorite your most-used prompts
-- search by title, description, or category
-- copy prompts quickly from a lightweight floating palette
+From there you can:
+
+- open the quick access palette
+- search your saved prompts by title, description, or category
+- copy a prompt immediately
+- manage your prompt library in the editor view
 
 ## Download
 
-PromptBar is distributed as a downloadable macOS app ZIP.
+PromptBar is distributed as a downloadable macOS ZIP release.
 
-Download the latest release from the repository's Releases page once available.
+Download the latest version from the repository's Releases page.
 
 ## Install
 
 1. Download `PromptBar.zip`
 2. Unzip the archive
 3. Drag `PromptBar.app` into `Applications`
-4. Open PromptBar from Applications
+4. Open `PromptBar`
 
-The app runs as a menu bar utility, so it lives in the macOS menu bar instead of the Dock.
+PromptBar runs as a menu bar app, so after launch it appears in the macOS menu bar.
 
 ## Permissions
 
-If you want to use the global `⌘⇧P` shortcut, macOS will ask you to grant Accessibility access to PromptBar:
+If you want to use the global `⌘⇧P` shortcut, macOS will ask for Accessibility access.
 
-- open `System Settings`
-- go to `Privacy & Security`
-- open `Accessibility`
-- enable `PromptBar`
+To enable it:
 
-Without that permission, you can still use PromptBar from the menu bar icon.
+1. Open `System Settings`
+2. Go to `Privacy & Security`
+3. Open `Accessibility`
+4. Enable `PromptBar`
+
+You can still open PromptBar from the menu bar icon even without that permission.
 
 ## Built For macOS
 
-PromptBar is designed as a native macOS utility using SwiftUI and AppKit. The current product includes:
+PromptBar is built as a native macOS app using SwiftUI and AppKit.
 
-- a menu bar app shell
-- a floating quick access palette
-- prompt search and copy flow
-- a prompt management editor
+The repository also includes an earlier web prototype, but the native app in [`macOS-App`](/Users/zai28/dev/PromptBar/macOS-App) is the main product.
 
 ## For Developers
 
-If you want to run or build PromptBar locally, see:
+Run the native app locally:
+
+```bash
+cd macOS-App
+swift run
+```
+
+Build a standalone app bundle:
+
+```bash
+cd macOS-App
+./scripts/build_app.sh
+```
+
+Build a release ZIP:
+
+```bash
+cd macOS-App
+./scripts/build_zip.sh
+```
+
+Additional development and release details:
 
 - [`macOS-App/README.md`](/Users/zai28/dev/PromptBar/macOS-App/README.md)
 - [`macOS-App/RELEASE.md`](/Users/zai28/dev/PromptBar/macOS-App/RELEASE.md)
-
-The repo also contains an earlier web prototype, but the native macOS app in [`macOS-App`](/Users/zai28/dev/PromptBar/macOS-App) is the main product.
