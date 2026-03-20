@@ -35,7 +35,7 @@ notarize_app_if_configured() {
 
   set +e
   response="$(xcrun notarytool submit "${APP_DIR}" "${submit_args[@]}" --wait --output-format json 2>&1)"
-  status=$?
+  submit_exit_code=$?
   set -e
 
   printf '%s
@@ -55,12 +55,12 @@ print(data.get('id', ''))
 PY2
 )"
 
-  if [[ $status -ne 0 ]]; then
+  if [[ $submit_exit_code -ne 0 ]]; then
     if [[ -n "$submission_id" ]]; then
       log "Fetching notarization log for ${submission_id}..."
       xcrun notarytool log "$submission_id" "${submit_args[@]}" || true
     fi
-    return $status
+    return $submit_exit_code
   fi
 
   xcrun stapler staple "${APP_DIR}"
