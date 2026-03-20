@@ -6,7 +6,7 @@ This repo builds a standalone signed macOS app and packages it as a downloadable
 
 - `macOS-App/dist/PromptBar.app`
 - `macOS-App/dist/PromptBar.zip`
-- Optional notarization and stapling for the app bundle
+- Optional notarization for the ZIP release
 - Optional GitHub Release upload for one-click downloads
 
 ## Local Build
@@ -23,8 +23,8 @@ After this folder is pushed into a GitHub repository, the workflow at [.github/w
 - build the app on macOS
 - sign it
 - notarize it
-- staple the app
 - package a ZIP
+- notarize the ZIP
 - upload the ZIP as an artifact
 - attach the ZIP to a GitHub Release on tag push
 

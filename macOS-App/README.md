@@ -65,7 +65,7 @@ This expects a preconfigured keychain profile created with `xcrun notarytool sto
 ## Distribution Notes
 
 - A signed `.app` or `.dmg` is better than `swift run` for normal users because the app runs independently from Terminal.
-- For public distribution, use an Apple Distribution certificate and notarize the final app before packaging the ZIP.
+- For public distribution, use an Apple Distribution certificate and package the app as a ZIP and notarize that ZIP for distribution.
 - Until notarization is configured, `spctl`/Gatekeeper will still reject the app even if it is signed.
 - The first time users enable the global hotkey, macOS will ask for Accessibility access for `PromptBar.app`.
 
