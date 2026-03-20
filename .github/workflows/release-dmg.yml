@@ -1,0 +1,103 @@
+name: Release DMG
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version (for example 1.0.0)"
+        required: true
+        type: string
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-dmg:
+    runs-on: macos-14
+    permissions:
+      contents: write
+
+    env:
+      APP_NAME: PromptBar
+      APP_PATH: macOS-App/dist/PromptBar.app
+      DMG_PATH: macOS-App/dist/PromptBar.dmg
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: version
+        shell: bash
+        run: |
+          if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+          else
+            VERSION="${{ github.event.inputs.version }}"
+          fi
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Import signing certificate
+        if: ${{ secrets.MACOS_CERTIFICATE_P12_BASE64 != '' && secrets.MACOS_CERTIFICATE_PASSWORD != '' && secrets.MACOS_SIGN_IDENTITY != '' }}
+        env:
+          CERT_BASE64: ${{ secrets.MACOS_CERTIFICATE_P12_BASE64 }}
+          CERT_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
+          KEYCHAIN_PASSWORD: ${{ secrets.MACOS_KEYCHAIN_PASSWORD }}
+        shell: bash
+        run: |
+          CERT_PATH="$RUNNER_TEMP/certificate.p12"
+          KEYCHAIN_PATH="$RUNNER_TEMP/build.keychain-db"
+          echo -n "$CERT_BASE64" | base64 --decode -o "$CERT_PATH"
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security import "$CERT_PATH" -P "$CERT_PASSWORD" -A -t cert -f pkcs12 -k "$KEYCHAIN_PATH"
+          security list-keychains -d user -s "$KEYCHAIN_PATH" $(security list-keychains -d user | tr -d '"')
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+
+      - name: Prepare notary key
+        if: ${{ secrets.APPLE_API_KEY_P8_BASE64 != '' && secrets.APPLE_API_KEY_ID != '' && secrets.APPLE_API_ISSUER_ID != '' }}
+        env:
+          APPLE_API_KEY_P8_BASE64: ${{ secrets.APPLE_API_KEY_P8_BASE64 }}
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/notary"
+          echo -n "$APPLE_API_KEY_P8_BASE64" | base64 --decode -o "$RUNNER_TEMP/notary/AuthKey.p8"
+
+      - name: Resolve signing flags
+        id: signing
+        shell: bash
+        run: |
+          if [[ -n "${{ secrets.MACOS_SIGN_IDENTITY }}" ]]; then
+            echo "skip_signing=0" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip_signing=1" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build signed DMG
+        working-directory: macOS-App
+        env:
+          PROMPTBAR_VERSION: ${{ steps.version.outputs.version }}
+          PROMPTBAR_BUILD_VERSION: ${{ github.run_number }}
+          PROMPTBAR_BUNDLE_ID: ${{ secrets.MACOS_BUNDLE_ID }}
+          PROMPTBAR_SIGN_IDENTITY: ${{ secrets.MACOS_SIGN_IDENTITY }}
+          PROMPTBAR_SKIP_SIGNING: ${{ steps.signing.outputs.skip_signing }}
+          PROMPTBAR_NOTARY_KEY_PATH: ${{ runner.temp }}/notary/AuthKey.p8
+          PROMPTBAR_NOTARY_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
+          PROMPTBAR_NOTARY_ISSUER: ${{ secrets.APPLE_API_ISSUER_ID }}
+        shell: bash
+        run: ./scripts/build_dmg.sh
+
+      - name: Upload DMG artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PromptBar-${{ steps.version.outputs.version }}-dmg
+          path: ${{ env.DMG_PATH }}
+
+      - name: Publish GitHub release
+        if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.DMG_PATH }}
+          generate_release_notes: true
+          name: PromptBar ${{ steps.version.outputs.version }}

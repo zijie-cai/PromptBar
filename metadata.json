@@ -1,0 +1,5 @@
+{
+  "name": "PromptBar Prototype",
+  "description": "A web-based simulation of a macOS menu bar application for managing AI prompts, featuring a Liquid Glass command palette.",
+  "requestFramePermissions": []
+}
