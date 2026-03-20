@@ -1,20 +1,98 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# PromptBar
 
-# Run and deploy your AI Studio app
+PromptBar is a native macOS menu bar utility for quickly searching, copying, and managing saved AI prompts.
 
-This contains everything you need to run your app locally.
+The app is designed around a lightweight command palette workflow:
 
-View your app in AI Studio: https://ai.studio/apps/0fd84cc3-6aef-4b65-9528-b315df952acf
+- open PromptBar from the menu bar or global shortcut
+- search saved prompts instantly
+- copy a prompt without leaving your current context
+- manage prompt titles, descriptions, favorites, and content in a simple editor
 
-## Run Locally
+## Repo Layout
 
-**Prerequisites:**  Node.js
+- [`macOS-App`](/Users/zai28/dev/PromptBar/macOS-App)
+  Native SwiftUI/AppKit macOS app and release packaging scripts.
+- [`src`](/Users/zai28/dev/PromptBar/src)
+  Earlier web prototype built with Vite and React.
 
+If you are working on the actual product, start with `macOS-App`.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Native macOS App
+
+Requirements:
+
+- macOS 14+
+- Xcode 15+ or Swift 5.10+
+
+Run the native app in development:
+
+```bash
+cd macOS-App
+swift run
+```
+
+This launches PromptBar as a menu bar app.  
+If you want the global `⌘⇧P` shortcut to work, macOS will require Accessibility permission.
+
+More native app details are in [`macOS-App/README.md`](/Users/zai28/dev/PromptBar/macOS-App/README.md).
+
+## Build A Standalone App
+
+Build a `.app` bundle that runs without Terminal:
+
+```bash
+cd macOS-App
+./scripts/build_app.sh
+```
+
+Output:
+
+```bash
+macOS-App/dist/PromptBar.app
+```
+
+## Build A DMG
+
+Create a distributable DMG:
+
+```bash
+cd macOS-App
+./scripts/build_dmg.sh
+```
+
+Output:
+
+```bash
+macOS-App/dist/PromptBar.dmg
+```
+
+Release setup, signing, notarization, and GitHub Actions publishing are documented in [`macOS-App/RELEASE.md`](/Users/zai28/dev/PromptBar/macOS-App/RELEASE.md).
+
+## GitHub Release Flow
+
+The repo includes a release workflow at [`.github/workflows/release-dmg.yml`](/Users/zai28/dev/PromptBar/.github/workflows/release-dmg.yml).
+
+Once the required GitHub secrets are configured, you can:
+
+- run the workflow manually from GitHub Actions
+- or push a tag like `v1.0.0`
+
+That workflow can:
+
+- build the app
+- sign it
+- notarize it
+- package a DMG
+- attach the DMG to a GitHub Release
+
+## Web Prototype
+
+The original web prototype is still available if you need to reference earlier UI work:
+
+```bash
+npm install
+npm run dev
+```
+
+This is not the preferred distribution target. The native app in `macOS-App` is the main product path.
