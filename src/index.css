@@ -83,16 +83,6 @@ textarea {
   background: rgba(255, 222, 188, 0.42);
 }
 
-.grid-glow {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(22, 24, 26, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(22, 24, 26, 0.04) 1px, transparent 1px);
-  background-size: 2.25rem 2.25rem;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 72%);
-}
-
 .hero,
 .overview-section,
 .showcase-section,

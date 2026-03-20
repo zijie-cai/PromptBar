@@ -46,7 +46,6 @@ export default function App() {
       <div className="site-background" aria-hidden="true">
         <div className="gradient-orb gradient-orb-left" />
         <div className="gradient-orb gradient-orb-right" />
-        <div className="grid-glow" />
       </div>
 
       <section className="hero">
