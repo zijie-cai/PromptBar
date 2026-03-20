@@ -1,7 +1,7 @@
-/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/CommandPaletteView.swift
-/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/FloatingPanel.swift
-/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/Models.swift
-/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptBarApp.swift
-/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptEditorView.swift
-/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptStore.swift
-/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/VisualEffectView.swift
+/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/CommandPaletteView.swift
+/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/FloatingPanel.swift
+/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/Models.swift
+/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptBarApp.swift
+/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptEditorView.swift
+/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptStore.swift
+/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/VisualEffectView.swift

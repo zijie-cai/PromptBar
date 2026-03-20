@@ -19,57 +19,57 @@
   "swiftCommands" : {
     "C.PromptBar-arm64-apple-macosx26.0-release.module" : {
       "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
-      "fileList" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/sources",
-      "importPath" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/Modules",
+      "fileList" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/sources",
+      "importPath" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/Modules",
       "inputs" : [
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/CommandPaletteView.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/CommandPaletteView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/FloatingPanel.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/FloatingPanel.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/Models.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/Models.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptBarApp.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptBarApp.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptEditorView.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptEditorView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptStore.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptStore.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/VisualEffectView.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/VisualEffectView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/sources"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/sources"
         }
       ],
       "isLibrary" : false,
       "moduleName" : "PromptBar",
-      "moduleOutputPath" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/Modules/PromptBar.swiftmodule",
+      "moduleOutputPath" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/Modules/PromptBar.swiftmodule",
       "objects" : [
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/CommandPaletteView.swift.o",
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/FloatingPanel.swift.o",
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/Models.swift.o",
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptBarApp.swift.o",
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptEditorView.swift.o",
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptStore.swift.o",
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/VisualEffectView.swift.o"
+        "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/CommandPaletteView.swift.o",
+        "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/FloatingPanel.swift.o",
+        "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/Models.swift.o",
+        "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptBarApp.swift.o",
+        "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptEditorView.swift.o",
+        "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptStore.swift.o",
+        "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/VisualEffectView.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -83,7 +83,7 @@
         "-DSWIFT_PACKAGE",
         "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
         "-module-cache-path",
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/ModuleCache",
+        "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/ModuleCache",
         "-parseable-output",
         "-Xfrontend",
         "-entry-point-function-name",
@@ -123,52 +123,52 @@
         "-package-name",
         "macos_app"
       ],
-      "outputFileMapPath" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/output-file-map.json",
+      "outputFileMapPath" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/output-file-map.json",
       "outputs" : [
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/CommandPaletteView.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/CommandPaletteView.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/FloatingPanel.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/FloatingPanel.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/Models.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/Models.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptBarApp.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptBarApp.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptEditorView.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptEditorView.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptStore.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptStore.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/VisualEffectView.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/VisualEffectView.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/Modules/PromptBar.swiftmodule"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/Modules/PromptBar.swiftmodule"
         }
       ],
       "prepareForIndexing" : false,
       "sources" : [
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/CommandPaletteView.swift",
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/FloatingPanel.swift",
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/Models.swift",
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptBarApp.swift",
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptEditorView.swift",
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptStore.swift",
-        "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/VisualEffectView.swift"
+        "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/CommandPaletteView.swift",
+        "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/FloatingPanel.swift",
+        "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/Models.swift",
+        "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptBarApp.swift",
+        "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptEditorView.swift",
+        "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptStore.swift",
+        "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/VisualEffectView.swift"
       ],
-      "tempsPath" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build",
+      "tempsPath" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build",
       "wholeModuleOptimization" : true
     }
   },
@@ -183,15 +183,15 @@
       "-package-name",
       "macos_app",
       "-c",
-      "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/CommandPaletteView.swift",
-      "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/FloatingPanel.swift",
-      "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/Models.swift",
-      "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptBarApp.swift",
-      "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptEditorView.swift",
-      "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptStore.swift",
-      "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/VisualEffectView.swift",
+      "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/CommandPaletteView.swift",
+      "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/FloatingPanel.swift",
+      "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/Models.swift",
+      "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptBarApp.swift",
+      "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptEditorView.swift",
+      "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptStore.swift",
+      "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/VisualEffectView.swift",
       "-I",
-      "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/Modules",
+      "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/Modules",
       "-target",
       "arm64-apple-macosx14.0",
       "-whole-module-optimization",
@@ -203,7 +203,7 @@
       "-DSWIFT_PACKAGE",
       "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
       "-module-cache-path",
-      "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/ModuleCache",
+      "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/ModuleCache",
       "-parseable-output",
       "-Xfrontend",
       "-entry-point-function-name",
@@ -263,7 +263,7 @@
     }
   },
   "writeCommands" : {
-    "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/sources" : {
+    "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/sources" : {
       "alwaysOutOfDate" : false,
       "inputs" : [
         {
@@ -272,36 +272,36 @@
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/CommandPaletteView.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/CommandPaletteView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/FloatingPanel.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/FloatingPanel.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/Models.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/Models.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptBarApp.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptBarApp.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptEditorView.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptEditorView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/PromptStore.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/PromptStore.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/Sources/PromptBar/VisualEffectView.swift"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/Sources/PromptBar/VisualEffectView.swift"
         }
       ],
-      "outputFilePath" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/sources"
+      "outputFilePath" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/sources"
     },
-    "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.product/Objects.LinkFileList" : {
+    "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.product/Objects.LinkFileList" : {
       "alwaysOutOfDate" : false,
       "inputs" : [
         {
@@ -310,36 +310,36 @@
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/CommandPaletteView.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/CommandPaletteView.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/FloatingPanel.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/FloatingPanel.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/Models.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/Models.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptBarApp.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptBarApp.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptEditorView.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptEditorView.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptStore.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/PromptStore.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/VisualEffectView.swift.o"
+          "name" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.build/VisualEffectView.swift.o"
         }
       ],
-      "outputFilePath" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar.product/Objects.LinkFileList"
+      "outputFilePath" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar.product/Objects.LinkFileList"
     },
-    "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt" : {
+    "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt" : {
       "alwaysOutOfDate" : true,
       "inputs" : [
         {
@@ -351,7 +351,7 @@
           "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
         }
       ],
-      "outputFilePath" : "/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+      "outputFilePath" : "/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
     }
   }
 }

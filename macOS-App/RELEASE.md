@@ -18,7 +18,7 @@ cd macOS-App
 
 ## GitHub Release Flow
 
-After this folder is pushed into a GitHub repository, the workflow at [.github/workflows/release-dmg.yml](/Users/zai28/dev/promptbar-prototype/.github/workflows/release-dmg.yml) can:
+After this folder is pushed into a GitHub repository, the workflow at [.github/workflows/release-dmg.yml](/Users/zai28/dev/PromptBar/.github/workflows/release-dmg.yml) can:
 
 - build the app on macOS
 - sign it
@@ -71,4 +71,3 @@ That will build and publish a release asset that users can download directly.
 
 - Without notarization secrets, the workflow can still produce a DMG, but macOS Gatekeeper will reject it.
 - For true one-click distribution, use a notarized DMG attached to a GitHub Release or your website.
-- This repo is not currently a git repository in the local workspace, so the workflow is prepared but cannot be executed from here until the code is pushed to GitHub.

@@ -1,6 +1,6 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     '/Users/zai28/dev/promptbar-prototype/macOS-App/.build/arm64-apple-macosx/release/PromptBar'
+binary-path:     '/Users/zai28/dev/PromptBar/macOS-App/.build/arm64-apple-macosx/release/PromptBar'
 relocations:
   - { offset: 0xEFA6B, size: 0x8, addend: 0x0, symName: '_$ss14_ArrayProtocolPsE6filterySay7ElementQzGSbAEKXEKFSay9PromptBar0E0VG_Tg5', symObjAddr: 0x300, symBinAddr: 0x1000017A8, symSize: 0x20C }
   - { offset: 0xF0532, size: 0x8, addend: 0x0, symName: '_$sIeg_IeyB_TR', symObjAddr: 0x5F8C, symBinAddr: 0x100007434, symSize: 0x2C }
@@ -232,7 +232,7 @@ relocations:
   - { offset: 0xF6C44, size: 0x8, addend: 0x0, symName: '_$s9PromptBar11AppDelegateCACycfcTo', symObjAddr: 0x22A4, symBinAddr: 0x10000ED60, symSize: 0x90 }
   - { offset: 0xF6C8E, size: 0x8, addend: 0x0, symName: '_$s9PromptBar11AppDelegateCfD', symObjAddr: 0x2334, symBinAddr: 0x10000EDF0, symSize: 0x30 }
   - { offset: 0xF6CB8, size: 0x8, addend: 0x0, symName: _PromptBar_main, symObjAddr: 0x23BC, symBinAddr: 0x10000EE78, symSize: 0x50 }
-  - { offset: 0xF6E47, size: 0x8, addend: 0x0, symName: '_$s9PromptBar13EmojiProviderV9allEmojisSaySSGvpZ', symObjAddr: 0x5D690, symBinAddr: 0x100036758, symSize: 0x0 }
+  - { offset: 0xF6E47, size: 0x8, addend: 0x0, symName: '_$s9PromptBar13EmojiProviderV9allEmojisSaySSGvpZ', symObjAddr: 0x5D620, symBinAddr: 0x100036758, symSize: 0x0 }
   - { offset: 0xF6E9B, size: 0x8, addend: 0x0, symName: '_$s9PromptBar11EmojiButtonVwxx', symObjAddr: 0x2C, symBinAddr: 0x10000F680, symSize: 0x30 }
   - { offset: 0xF6EAF, size: 0x8, addend: 0x0, symName: '_$s9PromptBar11EmojiButtonVwcp', symObjAddr: 0x5C, symBinAddr: 0x10000F6B0, symSize: 0x64 }
   - { offset: 0xF6EC3, size: 0x8, addend: 0x0, symName: '_$s9PromptBar11EmojiButtonVwca', symObjAddr: 0xC0, symBinAddr: 0x10000F714, symSize: 0x8C }
