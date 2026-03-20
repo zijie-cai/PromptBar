@@ -38,13 +38,16 @@ jobs:
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Import signing certificate
-        if: ${{ secrets.MACOS_CERTIFICATE_P12_BASE64 != '' && secrets.MACOS_CERTIFICATE_PASSWORD != '' && secrets.MACOS_SIGN_IDENTITY != '' }}
         env:
           CERT_BASE64: ${{ secrets.MACOS_CERTIFICATE_P12_BASE64 }}
           CERT_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
           KEYCHAIN_PASSWORD: ${{ secrets.MACOS_KEYCHAIN_PASSWORD }}
         shell: bash
         run: |
+          if [[ -z "$CERT_BASE64" || -z "$CERT_PASSWORD" || -z "${{ secrets.MACOS_SIGN_IDENTITY }}" ]]; then
+            echo "Signing certificate secrets not fully configured; skipping certificate import."
+            exit 0
+          fi
           CERT_PATH="$RUNNER_TEMP/certificate.p12"
           KEYCHAIN_PATH="$RUNNER_TEMP/build.keychain-db"
           echo -n "$CERT_BASE64" | base64 --decode -o "$CERT_PATH"
@@ -56,11 +59,14 @@ jobs:
           security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
 
       - name: Prepare notary key
-        if: ${{ secrets.APPLE_API_KEY_P8_BASE64 != '' && secrets.APPLE_API_KEY_ID != '' && secrets.APPLE_API_ISSUER_ID != '' }}
         env:
           APPLE_API_KEY_P8_BASE64: ${{ secrets.APPLE_API_KEY_P8_BASE64 }}
         shell: bash
         run: |
+          if [[ -z "$APPLE_API_KEY_P8_BASE64" || -z "${{ secrets.APPLE_API_KEY_ID }}" || -z "${{ secrets.APPLE_API_ISSUER_ID }}" ]]; then
+            echo "Notarization secrets not fully configured; skipping notary key setup."
+            exit 0
+          fi
           mkdir -p "$RUNNER_TEMP/notary"
           echo -n "$APPLE_API_KEY_P8_BASE64" | base64 --decode -o "$RUNNER_TEMP/notary/AuthKey.p8"
 
