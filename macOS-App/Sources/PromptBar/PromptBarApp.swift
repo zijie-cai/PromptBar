@@ -1,14 +1,13 @@
-import SwiftUI
 import Cocoa
+import SwiftUI
 
 @main
-struct PromptBarApp: App {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-
-    var body: some Scene {
-        Settings {
-            EmptyView()
-        }
+enum PromptBarMain {
+    static func main() {
+        let app = NSApplication.shared
+        let delegate = AppDelegate()
+        app.delegate = delegate
+        app.run()
     }
 }
 
@@ -20,7 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var store = PromptStore()
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        // Run as an accessory app (doesn't show in Dock)
         NSApp.setActivationPolicy(.accessory)
 
         setupMenuBar()
@@ -48,15 +46,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let menu = NSMenu()
         menu.showsStateColumn = false
 
-        let versionItem = NSMenuItem(title: "PromptBar", action: nil, keyEquivalent: "")
-        versionItem.isEnabled = false
-        menu.addItem(versionItem)
+        let titleItem = NSMenuItem(title: "PromptBar", action: nil, keyEquivalent: "")
+        titleItem.isEnabled = false
+        menu.addItem(titleItem)
 
         let openItem = NSMenuItem(title: "Quick Access", action: #selector(togglePalette), keyEquivalent: "p")
         openItem.keyEquivalentModifierMask = [.command, .shift]
+        openItem.target = self
         menu.addItem(openItem)
 
         let manageItem = NSMenuItem(title: "Edit Prompts", action: #selector(openEditor), keyEquivalent: "")
+        manageItem.target = self
         menu.addItem(manageItem)
 
         menu.addItem(NSMenuItem.separator())
@@ -148,9 +148,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.terminate(nil)
     }
 
-
     func setupGlobalHotkey() {
-        // Note: For this to work globally outside the app, the app needs Accessibility permissions.
         NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { [weak self] event in
             let commandKey = event.modifierFlags.contains(.command)
             let shiftKey = event.modifierFlags.contains(.shift)
