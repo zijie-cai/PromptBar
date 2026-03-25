@@ -53,7 +53,7 @@ const Nav = () => {
         <div className="flex items-center gap-5 text-[13px] font-medium">
           <span className="text-[#86868b] hidden sm:block">macOS 14+</span>
           <motion.a 
-            href="https://github.com/zijie-cai/PromptBar/releases/download/v1.0.2/PromptBar.zip"
+            href="https://github.com/zijie-cai/PromptBar/releases/download/v1.0.3/PromptBar.zip"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
@@ -410,7 +410,7 @@ export default function App() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
               <motion.a 
-                href="https://github.com/zijie-cai/PromptBar/releases/download/v1.0.2/PromptBar.zip"
+                href="https://github.com/zijie-cai/PromptBar/releases/download/v1.0.3/PromptBar.zip"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
