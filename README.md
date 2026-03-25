@@ -1,4 +1,4 @@
-# PromptBar
+<h1><img src="./readme-icon.svg" alt="PromptBar icon" width="26" valign="middle" /> PromptBar</h1>
 
 PromptBar is a macOS menu bar app for saving, searching, and instantly reusing AI prompts.
 
