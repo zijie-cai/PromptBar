@@ -2,7 +2,7 @@
 
 PromptBar is a macOS menu bar app for saving, searching, and instantly reusing AI prompts.
 
-[Download for macOS](https://github.com/zijie-cai/PromptBar/releases/download/v1.0.3/PromptBar.zip)
+[Download for macOS](https://github.com/zijie-cai/PromptBar/releases/download/v1.0.4/PromptBar.zip)
 
 ## What It Does
 
