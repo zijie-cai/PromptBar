@@ -7,20 +7,14 @@ struct PromptEditorView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            // Custom Centered Title Bar & Horizontal Separator
             ZStack {
                 Color(NSColor.windowBackgroundColor)
                     .edgesIgnoringSafeArea(.top)
-                
-                Text("Manage Prompts")
-                    .font(.system(size: 13, weight: .semibold))
-                    .foregroundColor(.primary)
-                    .frame(maxWidth: .infinity, alignment: .center)
             }
-            .frame(height: 32)
-            
+            .frame(height: 28)
+
             Divider()
-            
+
             HStack(spacing: 0) {
                 // Sidebar
                 VStack(spacing: 0) {
@@ -186,6 +180,7 @@ struct PromptDetailView: View {
                     .foregroundColor(.secondary)
                 
                 PromptContentEditor(text: $prompt.content)
+                    .frame(minHeight: 280)
                     .background(Color.white.opacity(0.05))
                     .overlay(
                         RoundedRectangle(cornerRadius: 6)
@@ -220,6 +215,9 @@ struct PromptContentEditor: NSViewRepresentable {
         textView.delegate = context.coordinator
         textView.drawsBackground = false
         textView.isRichText = false
+        textView.isEditable = true
+        textView.isSelectable = true
+        textView.allowsUndo = true
         textView.isAutomaticQuoteSubstitutionEnabled = false
         textView.isAutomaticDashSubstitutionEnabled = false
         textView.isAutomaticTextReplacementEnabled = false
@@ -227,12 +225,13 @@ struct PromptContentEditor: NSViewRepresentable {
         textView.textContainerInset = NSSize(width: 8, height: 10)
         textView.font = NSFont.monospacedSystemFont(ofSize: 13, weight: .regular)
         textView.textColor = NSColor.labelColor
-        textView.insertionPointColor = NSColor.labelColor
+        textView.insertionPointColor = NSColor.systemBlue
         textView.string = text
         textView.isVerticallyResizable = true
         textView.isHorizontallyResizable = false
         textView.textContainer?.widthTracksTextView = true
         textView.textContainer?.heightTracksTextView = false
+        textView.textContainer?.containerSize = NSSize(width: 0, height: CGFloat.greatestFiniteMagnitude)
         textView.minSize = NSSize(width: 0, height: 0)
         textView.maxSize = NSSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
 
@@ -396,7 +395,7 @@ struct EmojiPickerField: View {
                 .background(Color.white.opacity(0.05))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
-                        .stroke(isShowingPicker ? Color.accentColor.opacity(0.5) : Color.white.opacity(0.1), lineWidth: 1)
+                        .stroke(isShowingPicker ? Color.accentColor.opacity(0.9) : Color.white.opacity(0.1), lineWidth: isShowingPicker ? 1.5 : 1)
                 )
                 .cornerRadius(8)
                 .contentShape(Rectangle())

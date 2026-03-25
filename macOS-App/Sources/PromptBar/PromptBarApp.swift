@@ -61,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         menu.addItem(NSMenuItem.separator())
 
-        let quitItem = NSMenuItem(title: "Quit", action: #selector(quitApp), keyEquivalent: "q")
+        let quitItem = NSMenuItem(title: "Quit", action: #selector(quitApp), keyEquivalent: "")
         quitItem.target = self
         quitItem.image = nil
         menu.addItem(quitItem)
@@ -129,7 +129,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let hostingView = NSHostingView(rootView: view)
             hostingView.translatesAutoresizingMaskIntoConstraints = false
             visualEffect.addSubview(hostingView)
-
             NSLayoutConstraint.activate([
                 hostingView.topAnchor.constraint(equalTo: visualEffect.topAnchor),
                 hostingView.bottomAnchor.constraint(equalTo: visualEffect.bottomAnchor),
