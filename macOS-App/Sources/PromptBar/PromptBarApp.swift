@@ -48,8 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let menu = NSMenu()
         menu.showsStateColumn = false
 
-        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
-        let versionItem = NSMenuItem(title: "PromptBar v\(version)", action: nil, keyEquivalent: "")
+        let versionItem = NSMenuItem(title: "PromptBar", action: nil, keyEquivalent: "")
         versionItem.isEnabled = false
         menu.addItem(versionItem)
 
