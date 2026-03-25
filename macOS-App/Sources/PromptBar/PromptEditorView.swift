@@ -203,7 +203,7 @@ struct PromptContentEditor: NSViewRepresentable {
     }
 
     func makeNSView(context: Context) -> NSScrollView {
-        let scrollView = NSScrollView()
+        let scrollView = NSTextView.scrollableTextView()
         scrollView.drawsBackground = false
         scrollView.borderType = .noBorder
         scrollView.hasVerticalScroller = false
@@ -211,7 +211,10 @@ struct PromptContentEditor: NSViewRepresentable {
         scrollView.autohidesScrollers = true
         scrollView.scrollerStyle = .overlay
 
-        let textView = NSTextView()
+        guard let textView = scrollView.documentView as? NSTextView else {
+            return scrollView
+        }
+
         textView.delegate = context.coordinator
         textView.drawsBackground = false
         textView.isRichText = false
@@ -229,13 +232,12 @@ struct PromptContentEditor: NSViewRepresentable {
         textView.string = text
         textView.isVerticallyResizable = true
         textView.isHorizontallyResizable = false
+        textView.autoresizingMask = [.width]
         textView.textContainer?.widthTracksTextView = true
         textView.textContainer?.heightTracksTextView = false
         textView.textContainer?.containerSize = NSSize(width: 0, height: CGFloat.greatestFiniteMagnitude)
         textView.minSize = NSSize(width: 0, height: 0)
         textView.maxSize = NSSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
-
-        scrollView.documentView = textView
         return scrollView
     }
 
