@@ -1,4 +1,5 @@
 import SwiftUI
+import AppKit
 
 struct PromptEditorView: View {
     @ObservedObject var store: PromptStore
@@ -184,11 +185,7 @@ struct PromptDetailView: View {
                     .font(.system(size: 12, weight: .semibold))
                     .foregroundColor(.secondary)
                 
-                TextEditor(text: $prompt.content)
-                    .font(.system(size: 13, design: .monospaced))
-                    .foregroundColor(.primary)
-                    .padding(8)
-                    .scrollContentBackground(.hidden)
+                PromptContentEditor(text: $prompt.content)
                     .background(Color.white.opacity(0.05))
                     .overlay(
                         RoundedRectangle(cornerRadius: 6)
@@ -199,6 +196,68 @@ struct PromptDetailView: View {
         }
         .padding(28)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+    }
+}
+
+
+struct PromptContentEditor: NSViewRepresentable {
+    @Binding var text: String
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(text: $text)
+    }
+
+    func makeNSView(context: Context) -> NSScrollView {
+        let scrollView = NSScrollView()
+        scrollView.drawsBackground = false
+        scrollView.borderType = .noBorder
+        scrollView.hasVerticalScroller = false
+        scrollView.hasHorizontalScroller = false
+        scrollView.autohidesScrollers = true
+        scrollView.scrollerStyle = .overlay
+
+        let textView = NSTextView()
+        textView.delegate = context.coordinator
+        textView.drawsBackground = false
+        textView.isRichText = false
+        textView.isAutomaticQuoteSubstitutionEnabled = false
+        textView.isAutomaticDashSubstitutionEnabled = false
+        textView.isAutomaticTextReplacementEnabled = false
+        textView.isAutomaticSpellingCorrectionEnabled = false
+        textView.textContainerInset = NSSize(width: 8, height: 10)
+        textView.font = NSFont.monospacedSystemFont(ofSize: 13, weight: .regular)
+        textView.textColor = NSColor.labelColor
+        textView.insertionPointColor = NSColor.labelColor
+        textView.string = text
+        textView.isVerticallyResizable = true
+        textView.isHorizontallyResizable = false
+        textView.textContainer?.widthTracksTextView = true
+        textView.textContainer?.heightTracksTextView = false
+        textView.minSize = NSSize(width: 0, height: 0)
+        textView.maxSize = NSSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
+
+        scrollView.documentView = textView
+        return scrollView
+    }
+
+    func updateNSView(_ scrollView: NSScrollView, context: Context) {
+        guard let textView = scrollView.documentView as? NSTextView else { return }
+        if textView.string != text {
+            textView.string = text
+        }
+    }
+
+    final class Coordinator: NSObject, NSTextViewDelegate {
+        @Binding var text: String
+
+        init(text: Binding<String>) {
+            _text = text
+        }
+
+        func textDidChange(_ notification: Notification) {
+            guard let textView = notification.object as? NSTextView else { return }
+            text = textView.string
+        }
     }
 }
 
@@ -344,7 +403,7 @@ struct EmojiPickerField: View {
         }
         .buttonStyle(PlainButtonStyle())
         .popover(isPresented: $isShowingPicker, arrowEdge: .bottom) {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: columns, spacing: 8) {
                     ForEach(emojis, id: \.self) { e in
                         EmojiButton(emoji: e, isSelected: emoji == e) {

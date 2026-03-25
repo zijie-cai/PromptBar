@@ -5,11 +5,12 @@ import QuartzCore
 class FloatingPanel<Content: View>: NSPanel {
     init(content: Content) {
         super.init(contentRect: NSRect(x: 0, y: 0, width: 640, height: 480),
-                   styleMask: [.nonactivatingPanel, .titled, .resizable, .closable, .fullSizeContentView],
+                   styleMask: [.titled, .resizable, .closable, .fullSizeContentView],
                    backing: .buffered,
                    defer: false)
         
         self.isFloatingPanel = true
+        self.hidesOnDeactivate = false
         self.level = .floating
         self.collectionBehavior.insert(.fullScreenAuxiliary)
         self.titleVisibility = .hidden
@@ -50,11 +51,12 @@ class FloatingPanel<Content: View>: NSPanel {
         ])
         
         self.contentView = visualEffect
-        
+
         // Auto-close when clicking outside (losing focus)
         NotificationCenter.default.addObserver(forName: NSWindow.didResignKeyNotification, object: self, queue: nil) { [weak self] _ in
             self?.orderOut(nil)
         }
+        
     }
     
     // Allow the panel to receive keyboard events

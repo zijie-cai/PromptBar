@@ -14,6 +14,7 @@ struct PromptBarApp: App {
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem!
+    var statusMenu: NSMenu!
     var palettePanel: FloatingPanel<CommandPaletteView>?
     var editorWindow: NSWindow?
     var store = PromptStore()
@@ -24,21 +25,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         setupMenuBar()
         setupGlobalHotkey()
-        suppressStartupWindows()
-    }
-
-    func suppressStartupWindows() {
-        // SwiftUI may create an empty settings window on first launch.
-        DispatchQueue.main.async { [weak self] in
-            NSApp.windows
-                .filter { window in
-                    window !== self?.editorWindow && window !== self?.palettePanel
-                }
-                .forEach { window in
-                    window.orderOut(nil)
-                    window.close()
-                }
-        }
     }
 
     func setupMenuBar() {
@@ -53,6 +39,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 fallback?.isTemplate = true
                 button.image = fallback
             }
+
+            button.target = self
+            button.action = #selector(handleStatusItemClick(_:))
+            button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
 
         let menu = NSMenu()
@@ -77,7 +67,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         quitItem.image = nil
         menu.addItem(quitItem)
 
-        statusItem.menu = menu
+        statusMenu = menu
+    }
+
+    @objc func handleStatusItemClick(_ sender: Any?) {
+        guard let event = NSApp.currentEvent else {
+            togglePalette()
+            return
+        }
+
+        switch event.type {
+        case .rightMouseUp:
+            statusItem.menu = statusMenu
+            statusItem.button?.performClick(nil)
+            DispatchQueue.main.async { [weak self] in
+                self?.statusItem.menu = nil
+            }
+        default:
+            togglePalette()
+        }
     }
 
     @objc func togglePalette() {
@@ -92,6 +100,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if palettePanel?.isVisible == true {
             palettePanel?.orderOut(nil)
         } else {
+            NSApp.activate(ignoringOtherApps: true)
             palettePanel?.makeKeyAndOrderFront(nil)
         }
     }
@@ -140,9 +149,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.terminate(nil)
     }
 
-    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-        false
-    }
 
     func setupGlobalHotkey() {
         // Note: For this to work globally outside the app, the app needs Accessibility permissions.
