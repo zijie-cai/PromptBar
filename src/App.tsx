@@ -313,7 +313,7 @@ const InstallSection = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('brew install --cask promptbar');
+    navigator.clipboard.writeText('brew install --cask zijie-cai/promptbar/promptbar');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -345,7 +345,7 @@ const InstallSection = () => {
             </div>
             <div className="relative group">
               <code className="block w-full bg-[#121212] border border-white/10 px-4 py-3.5 rounded-xl text-white font-mono text-[14px] text-left shadow-inner">
-                brew install --cask promptbar
+                brew install --cask zijie-cai/promptbar/promptbar
               </code>
               <button 
                 onClick={handleCopy}

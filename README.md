@@ -21,6 +21,12 @@ PromptBar keeps your most-used prompts one shortcut away.
 3. Move `PromptBar.app` to `Applications`
 4. Open PromptBar
 
+Or install with Homebrew:
+
+```bash
+brew install --cask zijie-cai/promptbar/promptbar
+```
+
 ## Permissions
 
 To use the global `⌘⇧P` shortcut, allow PromptBar in:

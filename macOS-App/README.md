@@ -65,46 +65,27 @@ This expects a preconfigured keychain profile created with `xcrun notarytool sto
 ## Distribution Notes
 
 - A signed `.app` or `.dmg` is better than `swift run` for normal users because the app runs independently from Terminal.
-- For public distribution, use an Apple Distribution certificate and package the app as a ZIP and notarize that ZIP for distribution.
+- For public distribution outside the App Store, use a Developer ID Application certificate and notarize the ZIP before distribution.
 - Until notarization is configured, `spctl`/Gatekeeper will still reject the app even if it is signed.
 - The first time users enable the global hotkey, macOS will ask for Accessibility access for `PromptBar.app`.
 
 ## Packaging for Homebrew
 
-If you still want a CLI distribution path, you can package the release binary separately:
+PromptBar is distributed as a Homebrew cask through:
 
-1. Build the release executable:
-   ```bash
-   swift build -c release
-   ```
-2. The compiled binary will be located at `.build/release/PromptBar`.
-3. Create a Homebrew Tap and Formula (e.g., `promptbar.rb`):
+`zijie-cai/homebrew-promptbar`
 
-```ruby
-class Promptbar < Formula
-  desc "Minimal command palette for AI prompts"
-  homepage "https://github.com/yourusername/promptbar"
-  url "https://github.com/yourusername/promptbar/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "YOUR_TAR_SHA256"
-  license "MIT"
+Install with:
 
-  depends_on xcode: ["15.0", :build]
-
-  def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
-    bin.install ".build/release/PromptBar"
-  end
-
-  service do
-    run opt_bin/"PromptBar"
-    keep_alive true
-  end
-end
+```bash
+brew install --cask zijie-cai/promptbar/promptbar
 ```
 
-4. Users can then install it via:
-   ```bash
-   brew tap yourusername/promptbar
-   brew install promptbar
-   brew services start promptbar
-   ```
+That command installs the notarized `PromptBar.app` from the GitHub Release ZIP into `Applications`.
+
+To update the cask for a new release:
+
+1. Publish a new GitHub Release ZIP for PromptBar.
+2. Compute the ZIP SHA-256.
+3. Update `Casks/promptbar.rb` in the tap repo with the new `version`, `sha256`, and release URL.
+4. Push the tap repo changes.
