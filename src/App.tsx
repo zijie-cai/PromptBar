@@ -406,7 +406,7 @@ export default function App() {
               <span className="text-[#86868b] bg-clip-text text-transparent bg-gradient-to-b from-[#86868b] to-[#555555]">instantly accessible.</span>
             </h1>
             <p className="text-xl md:text-[22px] text-[#86868b] max-w-2xl mx-auto mb-12 text-balance leading-relaxed">
-              PromptBar is a native macOS menu bar utility for saving, searching, and copying prompts. Just press <kbd className="font-sans px-2 py-1 bg-white/10 rounded-md text-white text-lg mx-1 border border-white/10">⌘⇧P</kbd>.
+              PromptBar is a macOS menu bar app for saving, searching, and instantly reusing AI prompts. Just press <kbd className="font-sans px-2 py-1 bg-white/10 rounded-md text-white text-lg mx-1 border border-white/10">⌘⇧P</kbd>.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
               <motion.a 
@@ -469,7 +469,7 @@ export default function App() {
               </div>
               <h3 className="text-xl font-semibold tracking-tight mb-3 text-white">Instant Access</h3>
               <p className="text-[16px] text-[#86868b] leading-relaxed">
-                Summon your prompt library from anywhere with a global keyboard shortcut. No context switching required.
+                Pull up your saved prompts from anywhere with a global keyboard shortcut. No context switching required.
               </p>
             </motion.div>
 
@@ -486,7 +486,7 @@ export default function App() {
               </div>
               <h3 className="text-xl font-semibold tracking-tight mb-3 text-white">Fuzzy Search</h3>
               <p className="text-[16px] text-[#86868b] leading-relaxed">
-                Find exactly what you need in milliseconds. The search engine is optimized for speed and accuracy.
+                Find the right prompt in milliseconds with fast, focused search built for everyday use.
               </p>
             </motion.div>
 
@@ -503,7 +503,7 @@ export default function App() {
               </div>
               <h3 className="text-xl font-semibold tracking-tight mb-3 text-white">Native Feel</h3>
               <p className="text-[16px] text-[#86868b] leading-relaxed">
-                Built specifically for macOS. It feels like a natural extension of your operating system, not a web app.
+                Designed for macOS with a lightweight, keyboard-first workflow that feels right at home in your menu bar.
               </p>
             </motion.div>
           </motion.div>
@@ -524,7 +524,7 @@ export default function App() {
               A clean space to write.
             </h2>
             <p className="text-[18px] text-[#86868b] max-w-2xl mx-auto">
-              Manage your prompts in a beautiful, distraction-free editor. Organize with folders, edit with ease, and sync across your devices.
+              Manage your prompts in a clean, distraction-free editor. Update titles, descriptions, and content without leaving the app.
             </p>
           </motion.div>
           
