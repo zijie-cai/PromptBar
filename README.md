@@ -2,7 +2,7 @@
 
 PromptBar is a macOS menu bar app for saving, searching, and instantly reusing AI prompts.
 
-[Download for macOS](https://github.com/zijie-cai/PromptBar/releases/download/v1.0.0/PromptBar-1.0.0.zip)
+[Download for macOS](https://github.com/zijie-cai/PromptBar/releases/download/v1.0.1/PromptBar-1.0.1.zip)
 
 ## What It Does
 
@@ -16,7 +16,7 @@ PromptBar keeps your most-used prompts one shortcut away.
 
 ## Install
 
-1. Download `PromptBar-1.0.0.zip`
+1. Download `PromptBar-1.0.1.zip`
 2. Unzip the file
 3. Move `PromptBar.app` to `Applications`
 4. Open PromptBar
