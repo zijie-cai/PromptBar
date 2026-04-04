@@ -8,3 +8,4 @@ coverage/
 !.env.example
 iOS-App/
 tmp/
+macOS-App/.build/
