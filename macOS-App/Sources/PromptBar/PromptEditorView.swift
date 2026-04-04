@@ -4,6 +4,15 @@ import AppKit
 struct PromptEditorView: View {
     @ObservedObject var store: PromptStore
     @State private var selectedPromptId: UUID?
+
+    private var selectedPromptBinding: Binding<Prompt>? {
+        guard let id = selectedPromptId,
+              let index = store.prompts.firstIndex(where: { $0.id == id }) else {
+            return nil
+        }
+
+        return $store.prompts[index]
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -61,26 +70,19 @@ struct PromptEditorView: View {
                 ZStack {
                     Color.clear // Transparent background to let the window's visual effect show through
                     
-                    if let id = selectedPromptId {
+                    if let selectedPrompt = selectedPromptBinding {
                         PromptDetailView(
-                            prompt: Binding(
-                                get: { 
-                                    store.prompts.first(where: { $0.id == id }) ?? Prompt(emoji: "", title: "", description: "", content: "", category: "", isFavorite: false)
-                                },
-                                set: { newValue in
-                                    if let idx = store.prompts.firstIndex(where: { $0.id == id }) {
-                                        store.prompts[idx] = newValue
-                                    }
-                                }
-                            ),
+                            prompt: selectedPrompt,
                             onDelete: {
-                                if let idx = store.prompts.firstIndex(where: { $0.id == id }) {
+                                if let id = selectedPromptId,
+                                   let idx = store.prompts.firstIndex(where: { $0.id == id }) {
                                     store.prompts.remove(at: idx)
                                 }
                                 selectedPromptId = nil
                             },
                             onFavoriteToggle: {
-                                if let idx = store.prompts.firstIndex(where: { $0.id == id }) {
+                                if let id = selectedPromptId,
+                                   let idx = store.prompts.firstIndex(where: { $0.id == id }) {
                                     store.prompts[idx].isFavorite.toggle()
                                     withAnimation {
                                         store.sortPrompts()
@@ -107,7 +109,7 @@ struct PromptEditorView: View {
     }
     
     func addPrompt() {
-        let newPrompt = Prompt(emoji: "✨", title: "New Prompt", description: "Description here...", content: "", category: "General", isFavorite: false)
+        let newPrompt = Prompt(emoji: "✨", title: "New Prompt", description: "", content: "", category: "General", isFavorite: false)
         store.prompts.insert(newPrompt, at: 0)
         store.sortPrompts()
         selectedPromptId = newPrompt.id
@@ -180,6 +182,7 @@ struct PromptDetailView: View {
                     .foregroundColor(.secondary)
                 
                 PromptContentEditor(text: $prompt.content)
+                    .id(prompt.id)
                     .frame(minHeight: 280)
                     .background(Color.white.opacity(0.05))
                     .overlay(
