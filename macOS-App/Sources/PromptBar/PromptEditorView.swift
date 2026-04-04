@@ -194,7 +194,6 @@ struct PromptDetailView: View {
     }
 }
 
-
 struct PromptContentEditor: NSViewRepresentable {
     @Binding var text: String
 
@@ -203,7 +202,7 @@ struct PromptContentEditor: NSViewRepresentable {
     }
 
     func makeNSView(context: Context) -> NSScrollView {
-        let scrollView = NSTextView.scrollableTextView()
+        let scrollView = NSScrollView()
         scrollView.drawsBackground = false
         scrollView.borderType = .noBorder
         scrollView.hasVerticalScroller = false
@@ -211,20 +210,13 @@ struct PromptContentEditor: NSViewRepresentable {
         scrollView.autohidesScrollers = true
         scrollView.scrollerStyle = .overlay
 
-        guard let textView = scrollView.documentView as? NSTextView else {
-            return scrollView
-        }
-
+        let textView = NSTextView()
         textView.delegate = context.coordinator
         textView.drawsBackground = false
         textView.isRichText = false
         textView.isEditable = true
         textView.isSelectable = true
         textView.allowsUndo = true
-        textView.isAutomaticQuoteSubstitutionEnabled = false
-        textView.isAutomaticDashSubstitutionEnabled = false
-        textView.isAutomaticTextReplacementEnabled = false
-        textView.isAutomaticSpellingCorrectionEnabled = false
         textView.textContainerInset = NSSize(width: 8, height: 10)
         textView.font = NSFont.monospacedSystemFont(ofSize: 13, weight: .regular)
         textView.textColor = NSColor.labelColor
@@ -236,8 +228,10 @@ struct PromptContentEditor: NSViewRepresentable {
         textView.textContainer?.widthTracksTextView = true
         textView.textContainer?.heightTracksTextView = false
         textView.textContainer?.containerSize = NSSize(width: 0, height: CGFloat.greatestFiniteMagnitude)
-        textView.minSize = NSSize(width: 0, height: 0)
+        textView.minSize = .zero
         textView.maxSize = NSSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
+
+        scrollView.documentView = textView
         return scrollView
     }
 
@@ -246,6 +240,8 @@ struct PromptContentEditor: NSViewRepresentable {
         if textView.string != text {
             textView.string = text
         }
+        scrollView.hasVerticalScroller = false
+        scrollView.hasHorizontalScroller = false
     }
 
     final class Coordinator: NSObject, NSTextViewDelegate {
